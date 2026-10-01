@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeriLens</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">⌜⌟</span>
+      <div>
+        <strong>Veri<em>Lens</em></strong>
+        <small>Don’t just ask if it’s real. See why.</small>
+      </div>
+    </div>
+    <button id="gear" class="icon-btn" title="Settings">⚙</button>
+  </header>
+
+  <main>
+    <section id="settings" hidden>
+      <label>Backend URL
+        <input id="backendUrl" type="url" placeholder="http://127.0.0.1:8000">
+      </label>
+      <label>Web app URL
+        <input id="appUrl" type="url" placeholder="http://localhost:5173">
+      </label>
+      <label>Gemini API key <span class="hint">(optional — stored on this device only)</span>
+        <input id="apiKey" type="password" placeholder="Uses the backend's key if empty">
+      </label>
+      <button id="save" class="primary">Save</button>
+    </section>
+
+    <div id="status" class="status"><i></i><span>Checking backend…</span></div>
+
+    <label id="drop" class="drop" tabindex="0">
+      <input id="file" type="file" accept="image/*" hidden>
+      <div class="drop-icon">⬆</div>
+      <b>Drop an image here, or <u>browse</u></b>
+      <small>You can also paste an image (Ctrl+V)</small>
+    </label>
+
+    <form id="urlForm" class="url-row">
+      <input id="imageUrl" type="url" placeholder="…or paste an image URL">
+      <button class="primary" type="submit">Check</button>
+    </form>
+
+    <p class="tip">Tip: right-click any image on a web page → <b>Check with VeriLens</b>.</p>
+
+    <section id="result" class="vl-root" hidden></section>
+  </main>
+
+  <script src="lib.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
